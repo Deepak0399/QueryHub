@@ -1,4 +1,4 @@
-package com.practice.queryhub.model;
+package com.practice.queryHub.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
