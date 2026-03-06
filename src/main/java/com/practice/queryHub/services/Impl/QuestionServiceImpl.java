@@ -34,14 +34,15 @@ public class QuestionServiceImpl implements QuestionService {
         question.setContent(questionDTO.getContent());
         question.setId(UUID.randomUUID());
         question.setTitle(questionDTO.getTitle());
+
         Optional<User> user = userRepository.findById(questionDTO.getUserId());
         user.ifPresent(question::setUser);
-        questionDTO.getTagIds().stream()
+        Set<Tag> tags = questionDTO.getTagIds().stream()
                 .map(tagRepository::findById)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
                 .collect(Collectors.toSet());
-
+        question.setTags(tags);
         return questionRepository.save(question);
     }
 
@@ -69,5 +70,13 @@ public class QuestionServiceImpl implements QuestionService {
         else {
             throw new QuestionNotFoundException("Question Not Found");
         }
+    }
+
+    public Optional<Question> getQuestionByTag(UUID tagId) {
+        Optional<Tag> tag = tagRepository.findById(tagId);
+        if (tag.isPresent()) {
+//            questionRepository.findQuestionsByTags()
+        }
+        return null;
     }
 }

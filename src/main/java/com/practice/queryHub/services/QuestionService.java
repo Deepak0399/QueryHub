@@ -2,6 +2,7 @@ package com.practice.queryHub.services;
 
 import com.practice.queryHub.dtos.QuestionDTO;
 import com.practice.queryHub.model.Question;
+import com.practice.queryHub.model.Tag;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,4 +15,5 @@ public interface QuestionService {
     void deleteQuestion(UUID questionId);
     List<Question> getQuestions(int page, int size);
     Optional<Question> getQuestionById(UUID questionId);
+    Optional<Question> getQuestionByTag(UUID tagId);
 }
