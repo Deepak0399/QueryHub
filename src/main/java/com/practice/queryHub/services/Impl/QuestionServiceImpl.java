@@ -72,10 +72,10 @@ public class QuestionServiceImpl implements QuestionService {
         }
     }
 
-    public Optional<Question> getQuestionByTag(UUID tagId) {
+    public Optional<Question> getQuestionByTag(UUID tagId, int offset, int limit) {
         Optional<Tag> tag = tagRepository.findById(tagId);
         if (tag.isPresent()) {
-//            questionRepository.findQuestionsByTags()
+//            questionRepository.findQuestionsByTags(tagId, PageRequest.of(offset, limit)).getContent();
         }
         return null;
     }

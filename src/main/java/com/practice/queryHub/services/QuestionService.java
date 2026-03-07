@@ -15,5 +15,5 @@ public interface QuestionService {
     void deleteQuestion(UUID questionId);
     List<Question> getQuestions(int page, int size);
     Optional<Question> getQuestionById(UUID questionId);
-    Optional<Question> getQuestionByTag(UUID tagId);
+    Optional<Question> getQuestionByTag(UUID tagId, int page, int size);
 }
