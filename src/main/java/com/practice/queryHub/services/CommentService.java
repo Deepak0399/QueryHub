@@ -15,5 +15,6 @@ public interface CommentService {
     Optional<Comment> getCommentById(UUID commentId);
     List<Comment> getCommentsByAnswerId(UUID answerId, int page, int size);
     List<Comment> getRepliesByCommentId(UUID commentId, int page, int size);
+    void deleteComment(UUID commentId);
 
 }
