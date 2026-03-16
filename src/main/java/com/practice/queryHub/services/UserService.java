@@ -14,6 +14,7 @@ public interface UserService {
     List<User> getAllUsers();
     Optional<User> getUserById(UUID userId);
     void deleteUser(UUID id);
+    void followTags(UUID userId, UUID tagId);
 
 
 }
