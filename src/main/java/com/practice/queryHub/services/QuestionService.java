@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.UUID;
 
 @Service
@@ -15,5 +16,5 @@ public interface QuestionService {
     void deleteQuestion(UUID questionId);
     List<Question> getQuestions(int page, int size);
     Optional<Question> getQuestionById(UUID questionId);
-    Optional<Question> getQuestionByTag(UUID tagId, int page, int size);
+    List<Question> getQuestionByTag(Set<UUID> tagId, int page, int size);
 }

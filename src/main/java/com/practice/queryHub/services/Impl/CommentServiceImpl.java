@@ -10,7 +10,6 @@ import com.practice.queryHub.services.CommentService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
-import java.awt.print.Pageable;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -50,12 +49,12 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<Comment> getCommentsByAnswerId(UUID answerId, int offset, int limit) {
-        return commentRepository.findByAnswerId(answerId, (Pageable) PageRequest.of(offset, limit)).getContent();
+        return commentRepository.findByAnswerId(answerId, PageRequest.of(offset, limit)).getContent();
     }
 
     @Override
     public List<Comment> getRepliesByCommentId(UUID commentId, int offset, int limit) {
-        return commentRepository.findByParentCommentId(commentId, (Pageable) PageRequest.of(offset, limit)).getContent();
+        return commentRepository.findByParentCommentId(commentId, PageRequest.of(offset, limit)).getContent();
     }
 
     @Override
@@ -64,7 +63,7 @@ public class CommentServiceImpl implements CommentService {
             commentRepository.deleteById(commentId);
         }
         else {
-            throw new CommentNotFoundException("Comment Not Found");
+            throw new CommentNotFoundException("Comment Not Available To Delete");
         }
     }
 }

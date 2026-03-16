@@ -8,6 +8,7 @@ import java.util.Set;
 @Entity
 @Data
 public class Answer extends BaseModel {
+
     private String Content;
 
     @ManyToOne
